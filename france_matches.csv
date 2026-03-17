@@ -1,0 +1,58 @@
+date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
+2024-06-15,france,brazil,2,1,Friendly,Paris,France,False
+2024-06-10,germany,france,1,3,UEFA European Championship,Munich,Germany,False
+2024-05-25,france,spain,1,1,Friendly,Lyon,France,False
+2024-05-18,england,france,0,2,Friendly,London,England,False
+2024-04-20,france,italy,3,0,Friendly,Marseille,France,False
+2024-04-13,usa,france,2,2,SheBelieves Cup,Orlando,USA,True
+2024-04-10,france,usa,1,0,SheBelieves Cup,Orlando,USA,True
+2024-03-26,france,sweden,2,1,Friendly,Nice,France,False
+2024-03-22,netherlands,france,1,2,Friendly,Amsterdam,Netherlands,False
+2024-02-28,france,norway,4,1,Friendly,Clairefontaine,France,False
+2024-02-25,switzerland,france,0,3,Friendly,Geneva,Switzerland,False
+2023-12-05,france,australia,2,0,Friendly,Le Havre,France,False
+2023-11-30,denmark,france,1,1,Friendly,Copenhagen,Denmark,False
+2023-11-25,france,denmark,3,1,Friendly,Saint-Etienne,France,False
+2023-10-31,france,germany,1,2,Friendly,Nancy,France,False
+2023-10-27,austria,france,0,1,Friendly,Vienna,Austria,False
+2023-09-26,france,vietnam,7,0,Friendly,Orléans,France,False
+2023-09-22,france,ireland,2,0,Friendly,Metz,France,False
+2023-08-29,england,france,2,1,Friendly,London,England,False
+2023-08-25,france,england,1,0,Friendly,Newcastle,England,False
+2023-07-20,australia,france,0,0,FIFA World Cup,Brisbane,Australia,True
+2023-07-15,france,morocco,4,0,FIFA World Cup,Adelaide,Australia,True
+2023-07-11,france,panama,6,3,FIFA World Cup,Sydney,Australia,True
+2023-07-07,brazil,france,2,1,FIFA World Cup,Brisbane,Australia,True
+2023-06-30,france,jamaica,0,0,FIFA World Cup,Sydney,Australia,True
+2023-06-16,france,portugal,1,0,Friendly,Le Mans,France,False
+2023-06-13,belgium,france,1,4,Friendly,Brussels,Belgium,False
+2023-04-11,france,canada,1,2,Friendly,Le Havre,France,False
+2023-04-07,france,colombia,3,2,Friendly,Valencienne,France,False
+2023-02-23,france,norway,1,0,Friendly,Nice,France,False
+2023-02-18,iceland,france,0,1,Friendly,Reykjavik,Iceland,False
+2022-11-29,france,thailand,9,0,Friendly,Créteil,France,False
+2022-11-25,france,cameroon,4,0,Friendly,Angers,France,False
+2022-10-11,france,slovenia,4,0,UEFA European Championship,Ljubljana,Slovenia,False
+2022-10-07,slovenia,france,0,2,UEFA European Championship,Celje,Slovenia,False
+2022-09-06,france,finland,3,0,Friendly,Guingamp,France,False
+2022-09-02,france,kazakhstan,12,0,UEFA European Championship,Auxerre,France,False
+2022-06-30,france,estonia,8,0,UEFA European Championship,Le Mans,France,False
+2022-06-27,estonia,france,0,7,UEFA European Championship,Tallinn,Estonia,False
+2022-06-24,france,belgium,6,1,UEFA European Championship,Rotherham,England,True
+2022-06-21,iceland,france,1,1,UEFA European Championship,Rotherham,England,True
+2022-06-18,italy,france,1,5,UEFA European Championship,Rotherham,England,True
+2022-06-13,france,italy,2,0,UEFA European Championship,Le Havre,France,False
+2022-04-12,france,finland,2,0,Friendly,Caen,France,False
+2022-04-09,finland,france,0,3,Friendly,Helsinki,Finland,False
+2022-02-22,france,czech republic,5,1,Friendly,Calais,France,False
+2022-02-18,france,spain,0,0,Friendly,Le Havre,France,False
+2021-11-30,france,ukraine,2,1,Friendly,Créteil,France,False
+2021-11-26,ukraine,france,1,7,Friendly,Kyiv,Ukraine,False
+2021-10-09,austria,france,0,3,FIFA World Cup,Vienna,Austria,False
+2021-10-05,france,austria,3,0,FIFA World Cup,Guingamp,France,False
+2021-09-21,france,estonia,15,0,FIFA World Cup,Créteil,France,False
+2021-09-17,estonia,france,0,9,FIFA World Cup,Tallinn,Estonia,False
+2021-06-15,france,greece,2,1,Friendly,Orléans,France,False
+2021-06-11,france,bulgaria,3,0,Friendly,Clairefontaine,France,False
+2021-04-13,france,england,1,3,Friendly,Caen,France,False
+2021-04-09,england,france,2,0,Friendly,Burnley,England,False
