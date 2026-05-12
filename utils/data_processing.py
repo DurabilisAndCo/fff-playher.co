@@ -61,6 +61,10 @@ def load_and_process_data():
         np.where(df['is_home'], 'Domicile', 'Extérieur')
     )
 
+    # Alias columns expected by analyse.py / accueil.py
+    df['france_score'] = df['goals_scored']
+    df['opponent_score'] = df['goals_conceded']
+
     return df.sort_values('date').reset_index(drop=True)
 
 
@@ -132,9 +136,10 @@ def calculate_home_advantage(df):
     return home_win_rate - away_win_rate
 
 
-def get_performance_by_opponent(df):
+def get_performance_by_opponent(df, min_matches=1):
     """
     Returns a DataFrame with win/draw/loss stats grouped by opponent.
+    Only includes opponents with at least min_matches games.
     """
     if df is None or len(df) == 0:
         return pd.DataFrame()
@@ -142,11 +147,14 @@ def get_performance_by_opponent(df):
     records = []
     for opponent, group in df.groupby('opponent'):
         total = len(group)
+        if total < min_matches:
+            continue
         wins = (group['result'] == 'Victoire').sum()
         draws = (group['result'] == 'Nul').sum()
         losses = (group['result'] == 'Défaite').sum()
         records.append({
             'opponent': opponent,
+            'matches_played': total,       # alias used by analyse.py
             'total_matches': total,
             'wins': wins,
             'draws': draws,
