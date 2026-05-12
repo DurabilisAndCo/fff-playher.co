@@ -168,41 +168,31 @@ def get_performance_by_opponent(df, min_matches=1):
     return pd.DataFrame(records).sort_values('win_rate', ascending=False).reset_index(drop=True)
 
 
-def calculate_trend_metrics(df):
+def calculate_trend_metrics(df, window=5):
     """
-    Returns rolling/trend metrics to identify form over time.
+    Returns a DataFrame with per-match trend data used by insights.py.
+    Columns: date, result, points, rolling_points (rolling average of points).
+
+    Points system: Victoire=3, Nul=1, Défaite=0.
+    The window parameter controls the rolling average window size.
     """
     if df is None or len(df) == 0:
-        return {}
+        return pd.DataFrame(columns=['date', 'result', 'points', 'rolling_points'])
 
     df_sorted = df.sort_values('date').copy()
-    df_sorted['win_flag'] = (df_sorted['result'] == 'Victoire').astype(int)
 
-    # Rolling 5-match win rate
-    df_sorted['rolling_win_rate_5'] = df_sorted['win_flag'].rolling(5, min_periods=1).mean() * 100
-    df_sorted['rolling_goals_scored_5'] = df_sorted['goals_scored'].rolling(5, min_periods=1).mean()
-    df_sorted['rolling_goals_conceded_5'] = df_sorted['goals_conceded'].rolling(5, min_periods=1).mean()
+    # Points per match (football scoring system)
+    def match_points(result):
+        if result == 'Victoire':
+            return 3
+        elif result == 'Nul':
+            return 1
+        return 0
 
-    # Current streak
-    streak = 0
-    streak_type = None
-    for result in reversed(df_sorted['result'].tolist()):
-        if streak_type is None:
-            streak_type = result
-        if result == streak_type:
-            streak += 1
-        else:
-            break
+    df_sorted['points'] = df_sorted['result'].apply(match_points)
+    df_sorted['rolling_points'] = (
+        df_sorted['points'].rolling(window, min_periods=1).mean()
+    )
 
-    # Last 5 and 10 match performance
-    last_5 = df_sorted.tail(5)
-    last_10 = df_sorted.tail(10)
-
-    return {
-        'current_streak': streak,
-        'current_streak_type': streak_type,
-        'last_5_win_rate': (last_5['result'] == 'Victoire').mean() * 100 if len(last_5) > 0 else 0,
-        'last_10_win_rate': (last_10['result'] == 'Victoire').mean() * 100 if len(last_10) > 0 else 0,
-        'trend_data': df_sorted[['date', 'rolling_win_rate_5', 'rolling_goals_scored_5', 'rolling_goals_conceded_5']],
-        'best_year': int(df_sorted.groupby('year')['win_flag'].mean().idxmax()) if len(df_sorted) > 0 else None,
-    }
+    # Keep all original columns + derived ones so caller can access 'result', 'date', etc.
+    return df_sorted.reset_index(drop=True)
